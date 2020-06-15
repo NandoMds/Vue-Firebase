@@ -12,6 +12,7 @@
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
     "graphql": "^15.1.0",
+    "interact.js": "^1.2.8",
     "vue": "^2.6.11",
     "vue-apollo": "^3.0.3",
     "vue-funnel-graph-js": "^0.1.8",

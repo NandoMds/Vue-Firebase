@@ -11,6 +11,7 @@ import Register from '../views/Register.vue'
 import HomePage from '../views/HomePage.vue'
 import About from '../views/About.vue'
 import Funil from '../views/Funil.vue'
+import SwipeCard from '../views/SwipeCard.vue'
 
 Vue.use(VueRouter)
 
@@ -44,7 +45,12 @@ const routes = [
         path: '/funil',
         name: 'Funil',
         component: Funil
-      }
+      },
+      {
+        path: '/swipe-card',
+        name: 'SwipeCard',
+        component: SwipeCard
+      },
     ]
   },  
   {
