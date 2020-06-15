@@ -1,28 +1,63 @@
 <template>
     <div class="singup">
         <h1>Criar nova conta</h1>
-        <input type="text" placeholder="Nome">
+        <form>
+            <input type="text" name="username" v-model="username" placeholder="Username">
+            <br>
+            <input type="password" name="password" v-model="password" placeholder="Password">
+            <br>
+            <button type="button" @click="createUser(username, password)" class="btn btn-primary" value="Register">
+                Register
+            </button>
+        </form> 
         <br>
-        <input type="text" placeholder="Segundo Nome">
-        <br>
-        <input type="text" placeholder="Email">
-        <br>
-        <input type="password" placeholder="Senha">
-        <br>
-        <button type="submit">
-            <a name="btn-registrar" id="br" class="btn btn-primary" href="/home" >Cadastrar</a>
-        </button>
         <p>
             Bem vindo!
+            {{this.username}}
+            {{this.password}}
         </p>
     </div>
 </template>
 
 <script>
+import gql from 'graphql-tag'
+
     export default {
-        name: 'singup',
+        name: 'Register',
         data() {
-            return{}
+            return{
+                id: null,
+                username:'',
+                password:''
+            }
         },
+        apollo: {
+            users: gql `query {
+                users {
+                    id,
+                    username,
+                    password
+                }
+            }`,
+        },
+        methods: {
+            createUser(username, password){
+            console.log(`Create contact: ${username}`)
+            this.$apollo.mutate({
+                mutation: gql`mutation createUser($username: String!, $password: String!){
+                createUser(username: $username, password: $password) {
+                    id,
+                    username,
+                    password}
+                    }`,
+                    variables:{
+                        username: username,
+                        password: password,
+                        }
+                    }
+                )
+                location.reload();
+            },
+        }
     }
 </script>
