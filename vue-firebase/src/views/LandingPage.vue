@@ -1,5 +1,5 @@
 <template>
-  <div class="HomePage">
+  <div class="LandingPage">
     <h1>Bem Vindo!</h1>
     <p>
       Este é nosso primeiro projeto em Vue.Js!
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-  name: 'HomePage',
+  name: 'LandingPage',
   props: {
     msg: String
   }
