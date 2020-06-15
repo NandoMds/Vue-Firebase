@@ -10,6 +10,7 @@ import Login from '../views/Login.vue'
 import Register from '../views/Register.vue'
 import HomePage from '../views/HomePage.vue'
 import About from '../views/About.vue'
+import Funil from '../views/Funil.vue'
 
 Vue.use(VueRouter)
 
@@ -39,6 +40,11 @@ const routes = [
         name: 'About',
         component: About
       },
+      {
+        path: '/funil',
+        name: 'Funil',
+        component: Funil
+      }
     ]
   },  
   {
